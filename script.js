@@ -1,95 +1,122 @@
-// ==========================
-// Birthday Surprise Script ❤️
-// ==========================
+// ==============================
+// Premium Birthday Website Script
+// ==============================
 
-// Unlock Date
-const unlockDate = new Date("July 31, 2026 00:00:00").getTime();
+// Floating Hearts
+function createHeart() {
 
-// Preview Mode
-const previewMode = window.location.search.includes("preview=true");
+    const heart = document.createElement("div");
 
-// Elements
-const lockScreen = document.getElementById("lockScreen");
-const giftScreen = document.getElementById("giftScreen");
-const birthdayPage = document.getElementById("birthdayPage");
-const countdown = document.getElementById("countdown");
-const openGift = document.getElementById("openGift");
-const openLetter = document.getElementById("openLetter");
-const letter = document.getElementById("letter");
-const bgMusic = document.getElementById("bgMusic");
+    heart.innerHTML = "💖";
+
+    heart.className = "heart";
+
+    heart.style.left = Math.random() * 100 + "vw";
+
+    heart.style.fontSize = (20 + Math.random() * 25) + "px";
+
+    heart.style.animationDuration = (4 + Math.random() * 4) + "s";
+
+    document.body.appendChild(heart);
+
+    setTimeout(() => {
+        heart.remove();
+    }, 8000);
+
+}
+
+setInterval(createHeart, 700);
 
 // Open Letter
-openLetter.addEventListener("click", () => {
-    letter.style.display = "block";
-    letter.scrollIntoView({
-        behavior: "smooth"
-    });
-});
 
-// Show Gift Screen
-function showGiftScreen() {
-    lockScreen.style.display = "none";
-    giftScreen.style.display = "flex";
-    birthdayPage.style.display = "none";
-}
+const openLetter = document.getElementById("openLetter");
 
-// Preview Mode
-if (previewMode) {
+if (openLetter) {
 
-    showGiftScreen();
+    openLetter.addEventListener("click", () => {
 
-} else {
+        const letter = document.getElementById("letter");
 
-    function updateCountdown() {
+        if (letter.style.display === "block") {
 
-        const now = new Date().getTime();
-        const distance = unlockDate - now;
+            letter.style.display = "none";
 
-        if (distance <= 0) {
+        } else {
 
-            showGiftScreen();
+            letter.style.display = "block";
 
-            if (typeof confetti === "function") {
-                confetti({
-                    particleCount: 250,
-                    spread: 180,
-                    origin: { y: 0.6 }
-                });
-            }
+            letter.scrollIntoView({
+                behavior: "smooth"
+            });
 
-            return;
         }
 
-        const days = Math.floor(distance / (1000 * 60 * 60 * 24));
-        const hours = Math.floor((distance % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-        const minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
-        const seconds = Math.floor((distance % (1000 * 60)) / 1000);
+    });
 
-        countdown.innerHTML = `
-            <h2>${days}d ${hours}h ${minutes}m ${seconds}s</h2>
-        `;
-    }
-
-    updateCountdown();
-    setInterval(updateCountdown, 1000);
 }
 
-// Gift Open
-openGift.addEventListener("click", () => {
+// Confetti
 
-    giftScreen.style.display = "none";
-    birthdayPage.style.display = "block";
-
-    if (bgMusic) {
-        bgMusic.play().catch(() => {});
-    }
+window.onload = () => {
 
     if (typeof confetti === "function") {
+
         confetti({
-            particleCount: 350,
+
+            particleCount: 300,
+
             spread: 180,
-            origin: { y: 0.6 }
+
+            origin: {
+                y: 0.6
+            }
+
         });
+
     }
 
-});
+};
+
+// Floating Hearts CSS
+
+const style = document.createElement("style");
+
+style.innerHTML = `
+
+.heart{
+
+position:fixed;
+
+bottom:-50px;
+
+pointer-events:none;
+
+animation:fly linear forwards;
+
+z-index:999;
+
+}
+
+@keyframes fly{
+
+0%{
+
+transform:translateY(0) scale(1);
+
+opacity:1;
+
+}
+
+100%{
+
+transform:translateY(-110vh) scale(1.8);
+
+opacity:0;
+
+}
+
+}
+
+`;
+
+document.head.appendChild(style);
