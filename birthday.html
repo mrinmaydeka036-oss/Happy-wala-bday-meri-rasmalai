@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Happy Birthday Prishuuu ❤️</title>
+
+<link rel="stylesheet" href="style.css">
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
+
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+
+</head>
+
+<body class="birthday-page">
+
+<audio autoplay loop>
+<source src="bdy.mp3" type="audio/mpeg">
+</audio>
+
+<div class="container">
+
+<h1 class="title">
+Happy Birthday Prishuuu 🤍🎂
+</h1>
+
+<button id="openLetter">
+💌 Open My Heart
+</button>
+
+<div id="letter">
+
+<h2>To My Love ❤️</h2>
+
+<p>
+
+Happy Birthday, My Love. 🤍🎂✨
+
+<br><br>
+
+Today, the world feels a little more beautiful because it's the day you were born. 🌸💫
+
+<br><br>
+
+You came into my life like a dream I never knew I needed. 🌙❤️ Every moment with you feels warm, peaceful, and magical. ✨
+
+<br><br>
+
+I hope this year brings you endless happiness, countless reasons to smile. 😚
+
+May every little dream your heart has been quietly wishing for come true. 🌷💝
+
+<br><br>
+
+Thank you for being my safe place, my biggest happiness, and the best part of my life. 🫂💕
+
+<br><br>
+
+No matter where life takes us,
+
+I'll always be by your side. ❤️
+
+<br><br>
+
+Happy Birthday, my favorite person. 🎉🎁
+
+<br><br>
+
+I'll choose you in every lifetime. 🌍❤️
+
+<br><br>
+
+I love you endlessly. ♾️💋
+
+</p>
+
+</div>
+
+<div class="gallery">
+
+<img src="photo1.jpg">
+
+<img src="photo2.jpg">
+
+<img src="photo3.jpg">
+
+</div>
+
+<div class="end">
+
+<h2>
+
+In every lifetime,<br>
+
+I'd still find you...<br>
+
+and I'd still fall in love with you. ❤️♾️
+
+</h2>
+
+<p>
+
+Made with endless love,<br>
+
+just for you,<br>
+
+Prishuuu. 🤍✨
+
+</p>
+
+</div>
+
+</div>
+
+<script>
+
+confetti({
+particleCount:250,
+spread:180,
+origin:{y:0.6}
+});
+
+document.getElementById("openLetter").onclick=function(){
+
+const letter=document.getElementById("letter");
+
+if(letter.style.display=="block"){
+
+letter.style.display="none";
+
+}else{
+
+letter.style.display="block";
+
+letter.scrollIntoView({
+behavior:"smooth"
+});
+
+}
+
+}
+
+</script>
+
+</body>
+
+</html>
