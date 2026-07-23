@@ -1,0 +1,225 @@
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Poppins',sans-serif;
+}
+
+body{
+background:linear-gradient(135deg,#ffd6ec,#d6f3ff);
+min-height:100vh;
+overflow-x:hidden;
+color:#444;
+position:relative;
+}
+
+/* Background Blur Circles */
+
+body::before,
+body::after{
+content:"";
+position:fixed;
+width:350px;
+height:350px;
+border-radius:50%;
+filter:blur(90px);
+z-index:-1;
+opacity:.6;
+}
+
+body::before{
+background:#ffc1dd;
+top:-100px;
+left:-100px;
+}
+
+body::after{
+background:#b9ebff;
+bottom:-100px;
+right:-100px;
+}
+
+/* Lock Screen */
+
+#lockScreen{
+height:100vh;
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
+text-align:center;
+padding:20px;
+}
+
+#lockScreen h1{
+font-family:'Great Vibes',cursive;
+font-size:60px;
+color:#ff5d96;
+margin-bottom:20px;
+}
+
+#countdown{
+background:rgba(255,255,255,.35);
+backdrop-filter:blur(18px);
+padding:25px 45px;
+border-radius:25px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+margin:25px 0;
+}
+
+#countdown h2{
+font-size:42px;
+color:#5d8cff;
+}
+
+#lockScreen p{
+font-size:18px;
+color:#666;
+max-width:350px;
+}
+
+/* Birthday Page */
+
+#birthdayPage{
+display:none;
+padding:40px 20px;
+text-align:center;
+animation:fadeIn 1s;
+}
+
+.title{
+font-family:'Great Vibes',cursive;
+font-size:70px;
+color:#ff5d96;
+margin-bottom:30px;
+}
+
+/* Button */
+
+#openLetter{
+padding:15px 40px;
+border:none;
+border-radius:50px;
+background:#ff79ae;
+color:white;
+font-size:18px;
+cursor:pointer;
+transition:.3s;
+box-shadow:0 10px 25px rgba(255,105,180,.3);
+}
+
+#openLetter:hover{
+transform:scale(1.05);
+background:#ff5d96;
+}
+
+/* Letter */
+
+#letter{
+display:none;
+max-width:850px;
+margin:50px auto;
+padding:35px;
+background:rgba(255,255,255,.45);
+backdrop-filter:blur(20px);
+border-radius:25px;
+box-shadow:0 20px 40px rgba(0,0,0,.15);
+line-height:2;
+font-size:18px;
+animation:fadeIn 1s;
+}
+
+#letter h2{
+font-family:'Great Vibes',cursive;
+font-size:50px;
+color:#ff5d96;
+margin-bottom:20px;
+}
+
+/* Gallery */
+
+.gallery{
+display:flex;
+justify-content:center;
+gap:25px;
+flex-wrap:wrap;
+margin-top:50px;
+}
+
+.gallery img{
+width:260px;
+height:340px;
+object-fit:cover;
+border-radius:20px;
+box-shadow:0 15px 35px rgba(0,0,0,.15);
+transition:.4s;
+}
+
+.gallery img:hover{
+transform:scale(1.05) rotate(2deg);
+}
+
+/* Ending */
+
+.end{
+margin:80px 20px;
+}
+
+.end h2{
+font-family:'Great Vibes',cursive;
+font-size:48px;
+color:#ff5d96;
+margin-bottom:20px;
+}
+
+.end p{
+font-size:20px;
+color:#666;
+}
+
+/* Animation */
+
+@keyframes fadeIn{
+
+from{
+opacity:0;
+transform:translateY(40px);
+}
+
+to{
+opacity:1;
+transform:translateY(0);
+}
+
+}
+
+/* Mobile */
+
+@media(max-width:768px){
+
+#lockScreen h1{
+font-size:45px;
+}
+
+.title{
+font-size:50px;
+}
+
+#countdown h2{
+font-size:28px;
+}
+
+#letter{
+font-size:16px;
+padding:25px;
+}
+
+.gallery img{
+width:90%;
+height:auto;
+}
+
+.end h2{
+font-size:38px;
+}
+}
