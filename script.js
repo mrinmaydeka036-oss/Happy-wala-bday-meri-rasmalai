@@ -113,7 +113,7 @@ openGift.addEventListener("click", () => {
 
     giftScreen.style.display = "none";
 
-    birthdayPage.style.display = "block";
+    birthdayPage.style.display = "none";
 
     bgMusic.play();
 
