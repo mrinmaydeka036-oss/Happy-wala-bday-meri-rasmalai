@@ -3,135 +3,73 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-<title>Happy Birthday Prishuuu ❤️</title>
+<title>A Little Surprise For Prishuuu ❤️</title>
 
 <link rel="stylesheet" href="style.css">
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&family=Great+Vibes&display=swap" rel="stylesheet">
 
-<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
-
 </head>
 
-<body>
+<body class="countdown-page">
 
-<audio id="bgMusic" loop>
-    <source src="bdy.mp3" type="audio/mpeg">
-</audio>
+<div class="countdown-box">
 
-<!-- Countdown Screen -->
-<div id="lockScreen">
+<h1>💖 A Little Surprise For Prishuuu 💖</h1>
 
-    <h1>💖 A Little Surprise For Prishuuu 💖</h1>
+<p>Come back when the countdown reaches zero... ⏳❤️</p>
 
-    <div id="countdown">
-        <h2>Loading Countdown...</h2>
-    </div>
-
-    <p>Come back when the countdown reaches zero... ⏳❤️</p>
+<div id="countdown">
+<h2>Loading...</h2>
+</div>
 
 </div>
 
-<!-- Gift Screen -->
-<div id="giftScreen" style="display:none;">
+<script>
 
-    <h1>🎁</h1>
+// Preview Mode
+const previewMode = window.location.search.includes("preview=true");
 
-    <h2>Tap to Open Your Surprise</h2>
+// If preview, skip countdown
+if (previewMode) {
+    window.location.href = "gift.html?preview=true";
+}
 
-    <button id="openGift">
-        Open Gift ❤️
-    </button>
+// Unlock Date
+const unlockDate = new Date("July 31, 2026 00:00:00").getTime();
 
-</div>
+function updateCountdown(){
 
-<!-- Birthday Page -->
-<div id="birthdayPage" style="display:none;">
+const now = new Date().getTime();
 
-    <h1 class="title">
-        Happy Birthday Prishuuu 🤍🎂
-    </h1>
+const distance = unlockDate - now;
 
-    <button id="openLetter">
-        💌 Open My Heart
-    </button>
+if(distance <= 0){
 
-    <div id="letter" style="display:none;">
+window.location.href="gift.html";
 
-        <h2>To My Love ❤️</h2>
+return;
 
-        <p>
+}
 
-Happy Birthday, My Love. 🤍🎂✨
+const days=Math.floor(distance/(1000*60*60*24));
 
-<br><br>
+const hours=Math.floor((distance%(1000*60*60*24))/(1000*60*60));
 
-Today, the world feels a little more beautiful because it's the day you were born. 🌸💫
+const minutes=Math.floor((distance%(1000*60*60))/(1000*60));
 
-<br><br>
+const seconds=Math.floor((distance%(1000*60))/1000);
 
-You came into my life like a dream I never knew I needed. 🌙❤️ Every moment with you feels warm, peaceful, and magical. ✨
+document.getElementById("countdown").innerHTML=
+`<h2>${days}d ${hours}h ${minutes}m ${seconds}s</h2>`;
 
-<br><br>
+}
 
-I hope this year brings you endless happiness, countless reasons to smile. 😚 May every little dream your heart has been quietly wishing for come true. 🌷💝
+updateCountdown();
 
-<br><br>
+setInterval(updateCountdown,1000);
 
-Thank you for being my safe place, my biggest happiness, and the best part of my life. 🫂💕
-
-No matter where life takes us, I'll always be by your side. 🤝❤️
-
-<br><br>
-
-May your smile never fade. 😘
-
-May your heart always stay full of love and joy. 💖
-
-And may we keep creating beautiful memories together. 📸✨
-
-<br><br>
-
-Happy Birthday, my favorite person. 🎉🎁
-
-I'll choose you in every lifetime. 🌍❤️
-
-I love you endlessly. ♾️💋
-
-        </p>
-
-    </div>
-
-    <div class="gallery">
-
-        <img src="photo1.jpg" alt="Photo 1">
-
-        <img src="photo2.jpg" alt="Photo 2">
-
-        <img src="photo3.jpg" alt="Photo 3">
-
-    </div>
-
-    <div class="end">
-
-        <h2>
-            In every lifetime,<br>
-            I'd still find you...<br>
-            and I'd still fall in love with you. ❤️♾️
-        </h2>
-
-        <p>
-            Made with endless love,<br>
-            just for you,<br>
-            Prishuuu. 🤍✨
-        </p>
-
-    </div>
-
-</div>
-
-<script src="script.js"></script>
+</script>
 
 </body>
 </html>
