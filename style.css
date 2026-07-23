@@ -223,3 +223,62 @@ height:auto;
 font-size:38px;
 }
 }
+
+#giftScreen{
+
+display:none;
+height:100vh;
+
+justify-content:center;
+align-items:center;
+
+flex-direction:column;
+
+text-align:center;
+
+}
+
+#giftScreen h1{
+
+font-size:120px;
+
+animation:float 2s infinite;
+
+}
+
+#giftScreen h2{
+
+margin:20px 0;
+color:#ff5d96;
+
+}
+
+#openGift{
+
+padding:15px 40px;
+
+border:none;
+
+border-radius:50px;
+
+background:#ff5d96;
+
+color:white;
+
+font-size:18px;
+
+cursor:pointer;
+
+}
+
+@keyframes float{
+
+0%,100%{
+transform:translateY(0);
+}
+
+50%{
+transform:translateY(-15px);
+}
+
+}
