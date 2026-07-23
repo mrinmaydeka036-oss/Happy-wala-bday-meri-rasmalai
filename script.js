@@ -14,6 +14,9 @@ const birthdayPage = document.getElementById("birthdayPage");
 const countdown = document.getElementById("countdown");
 const openLetter = document.getElementById("openLetter");
 const letter = document.getElementById("letter");
+const giftScreen = document.getElementById("giftScreen");
+const openGift = document.getElementById("openGift");
+const bgMusic = document.getElementById("bgMusic");
 
 // Open Letter
 openLetter.addEventListener("click", () => {
@@ -64,7 +67,7 @@ if(distance<=0){
 
 lockScreen.style.display="none";
 
-birthdayPage.style.display="block";
+giftScreen.style.display="flex";
 
 if(typeof confetti==="function"){
 
@@ -105,3 +108,19 @@ updateCountdown();
 setInterval(updateCountdown,1000);
 
 }
+
+openGift.addEventListener("click", () => {
+
+    giftScreen.style.display = "none";
+
+    birthdayPage.style.display = "block";
+
+    bgMusic.play();
+
+    confetti({
+        particleCount: 300,
+        spread: 180,
+        origin: { y: 0.6 }
+    });
+
+});
