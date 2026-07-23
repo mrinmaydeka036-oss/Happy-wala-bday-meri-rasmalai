@@ -1,284 +1,225 @@
 *{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    font-family:'Poppins',sans-serif;
 }
 
 body{
-background:linear-gradient(135deg,#ffd6ec,#d6f3ff);
-min-height:100vh;
-overflow-x:hidden;
-color:#444;
-position:relative;
+    background:linear-gradient(135deg,#ffd6ec,#d6f3ff);
+    min-height:100vh;
+    overflow-x:hidden;
+    color:#444;
 }
 
-/* Background Blur Circles */
+/* Background Glow */
 
 body::before,
 body::after{
-content:"";
-position:fixed;
-width:350px;
-height:350px;
-border-radius:50%;
-filter:blur(90px);
-z-index:-1;
-opacity:.6;
+    content:"";
+    position:fixed;
+    width:350px;
+    height:350px;
+    border-radius:50%;
+    filter:blur(90px);
+    z-index:-1;
+    opacity:.6;
 }
 
 body::before{
-background:#ffc1dd;
-top:-100px;
-left:-100px;
+    background:#ffc1dd;
+    top:-100px;
+    left:-100px;
 }
 
 body::after{
-background:#b9ebff;
-bottom:-100px;
-right:-100px;
+    background:#b9ebff;
+    bottom:-100px;
+    right:-100px;
 }
 
-/* Lock Screen */
+/* Countdown */
 
 #lockScreen{
-height:100vh;
-display:flex;
-flex-direction:column;
-justify-content:center;
-align-items:center;
-text-align:center;
-padding:20px;
+    height:100vh;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:20px;
 }
 
 #lockScreen h1{
-font-family:'Great Vibes',cursive;
-font-size:60px;
-color:#ff5d96;
-margin-bottom:20px;
+    font-family:'Great Vibes',cursive;
+    font-size:60px;
+    color:#ff5d96;
+    margin-bottom:20px;
 }
 
 #countdown{
-background:rgba(255,255,255,.35);
-backdrop-filter:blur(18px);
-padding:25px 45px;
-border-radius:25px;
-box-shadow:0 15px 35px rgba(0,0,0,.15);
-margin:25px 0;
+    background:rgba(255,255,255,.35);
+    backdrop-filter:blur(18px);
+    padding:25px 45px;
+    border-radius:25px;
+    margin:20px;
+    box-shadow:0 10px 25px rgba(0,0,0,.15);
 }
 
 #countdown h2{
-font-size:42px;
-color:#5d8cff;
+    font-size:40px;
+    color:#5d8cff;
 }
 
-#lockScreen p{
-font-size:18px;
-color:#666;
-max-width:350px;
+/* Gift Screen */
+
+#giftScreen{
+    display:none;
+    height:100vh;
+    justify-content:center;
+    align-items:center;
+    flex-direction:column;
+    text-align:center;
+}
+
+#giftScreen h1{
+    font-size:120px;
+    animation:float 2s infinite;
+}
+
+#giftScreen h2{
+    color:#ff5d96;
+    margin:20px 0;
+}
+
+#openGift{
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    background:#ff5d96;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
+}
+
+@keyframes float{
+    0%,100%{
+        transform:translateY(0);
+    }
+    50%{
+        transform:translateY(-15px);
+    }
 }
 
 /* Birthday Page */
 
 #birthdayPage{
-display:none;
-padding:40px 20px;
-text-align:center;
-animation:fadeIn 1s;
+    display:none;
+    text-align:center;
+    padding:40px 20px;
+    animation:fadeIn 1s;
 }
 
 .title{
-font-family:'Great Vibes',cursive;
-font-size:70px;
-color:#ff5d96;
-margin-bottom:30px;
+    font-family:'Great Vibes',cursive;
+    font-size:70px;
+    color:#ff5d96;
+    margin-bottom:25px;
 }
-
-/* Button */
 
 #openLetter{
-padding:15px 40px;
-border:none;
-border-radius:50px;
-background:#ff79ae;
-color:white;
-font-size:18px;
-cursor:pointer;
-transition:.3s;
-box-shadow:0 10px 25px rgba(255,105,180,.3);
+    padding:15px 40px;
+    border:none;
+    border-radius:50px;
+    background:#ff79ae;
+    color:white;
+    font-size:18px;
+    cursor:pointer;
 }
-
-#openLetter:hover{
-transform:scale(1.05);
-background:#ff5d96;
-}
-
-/* Letter */
 
 #letter{
-display:none;
-max-width:850px;
-margin:50px auto;
-padding:35px;
-background:rgba(255,255,255,.45);
-backdrop-filter:blur(20px);
-border-radius:25px;
-box-shadow:0 20px 40px rgba(0,0,0,.15);
-line-height:2;
-font-size:18px;
-animation:fadeIn 1s;
+    display:none;
+    max-width:850px;
+    margin:40px auto;
+    padding:35px;
+    background:rgba(255,255,255,.45);
+    backdrop-filter:blur(20px);
+    border-radius:25px;
+    line-height:2;
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
 }
 
 #letter h2{
-font-family:'Great Vibes',cursive;
-font-size:50px;
-color:#ff5d96;
-margin-bottom:20px;
+    font-family:'Great Vibes',cursive;
+    font-size:48px;
+    color:#ff5d96;
+    margin-bottom:20px;
 }
 
-/* Gallery */
-
 .gallery{
-display:flex;
-justify-content:center;
-gap:25px;
-flex-wrap:wrap;
-margin-top:50px;
+    display:flex;
+    justify-content:center;
+    flex-wrap:wrap;
+    gap:20px;
+    margin-top:50px;
 }
 
 .gallery img{
-width:260px;
-height:340px;
-object-fit:cover;
-border-radius:20px;
-box-shadow:0 15px 35px rgba(0,0,0,.15);
-transition:.4s;
+    width:260px;
+    height:340px;
+    object-fit:cover;
+    border-radius:20px;
+    box-shadow:0 15px 30px rgba(0,0,0,.15);
+    transition:.3s;
 }
 
 .gallery img:hover{
-transform:scale(1.05) rotate(2deg);
+    transform:scale(1.05);
 }
 
-/* Ending */
-
 .end{
-margin:80px 20px;
+    margin:80px 20px;
 }
 
 .end h2{
-font-family:'Great Vibes',cursive;
-font-size:48px;
-color:#ff5d96;
-margin-bottom:20px;
+    font-family:'Great Vibes',cursive;
+    font-size:48px;
+    color:#ff5d96;
 }
 
 .end p{
-font-size:20px;
-color:#666;
+    margin-top:20px;
+    font-size:20px;
 }
-
-/* Animation */
 
 @keyframes fadeIn{
-
-from{
-opacity:0;
-transform:translateY(40px);
+    from{
+        opacity:0;
+        transform:translateY(30px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
 }
-
-to{
-opacity:1;
-transform:translateY(0);
-}
-
-}
-
-/* Mobile */
 
 @media(max-width:768px){
 
-#lockScreen h1{
-font-size:45px;
-}
+    #lockScreen h1{
+        font-size:42px;
+    }
 
-.title{
-font-size:50px;
-}
+    .title{
+        font-size:50px;
+    }
 
-#countdown h2{
-font-size:28px;
-}
+    #countdown h2{
+        font-size:28px;
+    }
 
-#letter{
-font-size:16px;
-padding:25px;
-}
-
-.gallery img{
-width:90%;
-height:auto;
-}
-
-.end h2{
-font-size:38px;
-}
-}
-
-#giftScreen{
-
-display:none;
-height:100vh;
-
-justify-content:center;
-align-items:center;
-
-flex-direction:column;
-
-text-align:center;
-
-}
-
-#giftScreen h1{
-
-font-size:120px;
-
-animation:float 2s infinite;
-
-}
-
-#giftScreen h2{
-
-margin:20px 0;
-color:#ff5d96;
-
-}
-
-#openGift{
-
-padding:15px 40px;
-
-border:none;
-
-border-radius:50px;
-
-background:#ff5d96;
-
-color:white;
-
-font-size:18px;
-
-cursor:pointer;
-
-}
-
-@keyframes float{
-
-0%,100%{
-transform:translateY(0);
-}
-
-50%{
-transform:translateY(-15px);
-}
+    .gallery img{
+        width:90%;
+        height:auto;
+    }
 
 }
